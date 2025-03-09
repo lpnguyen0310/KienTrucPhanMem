@@ -1,0 +1,13 @@
+package state;
+
+public class OfficeEmployee implements JobState {
+
+	@Override
+	public void performDuties() {
+		// TODO Auto-generated method stub
+		System.out.println("Pha trà.");
+        System.out.println("Phê duyệt tài liệu.");
+	}
+	
+
+}

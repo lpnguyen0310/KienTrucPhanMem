@@ -1,0 +1,34 @@
+package noDesignPattern;
+
+public class Employee {
+	private String name;
+	private String position;
+	
+	public Employee(String name, String position) {
+		super();
+		this.name = name;
+		this.position = position;
+	}
+	
+	public void performDuties() {
+		System.out.println("Nhân Viên" + name + "Vị trí" + position);
+		if(position.equalsIgnoreCase("Đội trưởng")) {
+			System.out.println("Giao Công Việc cho nhân viên");
+			System.out.println("Kiểm tra công việc");
+		} 
+		else if(position.equalsIgnoreCase("Giám Đốc")) {
+			System.out.println("Quản lý tổng thể công ty");
+			System.out.println("Ra quyết định chiến lược");
+		}
+		else if(position.equalsIgnoreCase("Nhân Viên VP")) {
+			System.out.println("Pha trà");
+			System.out.println("Phê duyệt tài liệu");
+		}else if (position.equals("Nhân viên Xưởng")) {
+            System.out.println("Sản xuất và kiểm tra sản phẩm.");
+        } else if (position.equals("Kế Toán Trưởng")) {
+            System.out.println("Quản lý sổ sách.");
+            System.out.println("Kế toán và báo cáo tài chính.");
+        }
+	}
+	
+}

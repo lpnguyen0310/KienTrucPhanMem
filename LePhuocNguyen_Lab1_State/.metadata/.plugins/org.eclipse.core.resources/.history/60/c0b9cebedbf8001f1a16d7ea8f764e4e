@@ -1,0 +1,13 @@
+package state;
+
+public class Director implements JobState {
+
+	@Override
+	public void performDuties() {
+		// TODO Auto-generated method stub
+		System.out.println("Quản lý tổng thể công ty");
+        System.out.println("Ra quyết định chiến lược.");
+
+	}
+	
+}

@@ -1,0 +1,9 @@
+package state;
+
+public class Accountant implements JobState {
+	 @Override
+	    public void performDuties() {
+	        System.out.println("Quản lý sổ sách.");
+	        System.out.println("Kế toán và báo cáo tài chính.");
+	    }
+}

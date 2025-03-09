@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="noDesignPattern.Employee"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="state.JobState"/>
+    <fullyQualifiedTypeName name="state.TeamLeader"/>
+    <fullyQualifiedTypeName name="state.Director"/>
+    <fullyQualifiedTypeName name="state.OfficeEmployee"/>
+    <fullyQualifiedTypeName name="state.FactoryEmployee"/>
+    <fullyQualifiedTypeName name="state.Accountant"/>
+    <fullyQualifiedTypeName name="strategyPattern.JobResponsibilities"/>
+    <fullyQualifiedTypeName name="decoratorPattern.JobResponsibilities"/>
+    <fullyQualifiedTypeName name="decoratorPattern.decorator.BaseResponsibilities"/>
+</qualifiedTypeNameHistroy>

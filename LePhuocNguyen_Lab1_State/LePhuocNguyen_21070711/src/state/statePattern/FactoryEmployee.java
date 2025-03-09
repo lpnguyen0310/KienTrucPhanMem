@@ -1,0 +1,14 @@
+package state.statePattern;
+
+import state.JobState;
+
+public class FactoryEmployee implements JobState{
+
+	@Override
+	public void performDuties() {
+		// TODO Auto-generated method stub
+        System.out.println("Sản xuất và kiểm tra sản phẩm.");
+
+	}
+	
+}

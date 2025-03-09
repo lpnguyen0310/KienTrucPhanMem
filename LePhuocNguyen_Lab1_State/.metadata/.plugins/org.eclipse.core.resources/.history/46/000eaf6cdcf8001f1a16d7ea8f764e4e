@@ -1,0 +1,5 @@
+package strategyPattern.entity;
+
+public class Employee {
+
+}
