@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:latest        # Sử dụng image Nginx mới nhất
+    ports:
+      - "8080:80"              # Map cổng 8080 của máy host với cổng 80 của container
+   
