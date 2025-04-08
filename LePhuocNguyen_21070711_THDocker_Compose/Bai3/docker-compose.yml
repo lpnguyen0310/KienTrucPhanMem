@@ -1,25 +1,25 @@
-version: '3.7'
-
+version: "3.8"
 services:
-  mysql:
-    image: mysql:8
-    container_name: mysql-container
+  db:
+    image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: examplepassword  # Đặt mật khẩu cho root user
-      MYSQL_DATABASE: exampledb  # Tên cơ sở dữ liệu
-      MYSQL_USER: admin           # Tạo một user 'admin'
-      MYSQL_PASSWORD: adminpassword  # Đặt mật khẩu cho user 'admin'
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: mydb
     ports:
-      - "3306:3306"  # Cổng MySQL
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin-container
-    environment:
-      PMA_HOST: mysql  # Tên service của MySQL trong Docker Compose
-      PMA_PORT: 3306  # Cổng của MySQL
-      PMA_USER: root   # Username 'root' để kết nối với MySQL
-      PMA_PASSWORD: examplepassword  # Mật khẩu root user
     ports:
-      - "8081:80"  # Cổng của PHPMyAdmin là 8081
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
     depends_on:
-      - mysql
+      - db
+
+volumes:
+  db-data:
