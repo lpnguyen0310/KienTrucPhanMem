@@ -1,0 +1,101 @@
+version: '3'
+
+services:
+  # API Gateway
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - product-service
+      - order-service
+      - customer-service
+    networks:
+      - sales-network
+
+  # Product Service
+  product-service:
+    build: ./product-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://mssql-product:1433;databaseName=product_db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sapassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - mssql-product
+    networks:
+      - sales-network
+
+  # Order Service
+  order-service:
+    build: ./order-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://mssql-order:1433;databaseName=order_db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sapassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - mssql-order
+    networks:
+      - sales-network
+
+  # Customer Service
+  customer-service:
+    build: ./customer-service
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://mssql-customer:1433;databaseName=customer_db
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=sapassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - mssql-customer
+    networks:
+      - sales-network
+
+  # MS SQL Server for Product Service
+  mssql-product:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1434:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password
+      - MSSQL_PID=Express
+    networks:
+      - sales-network
+
+  # MS SQL Server for Order Service
+  mssql-order:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1435:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password
+      - MSSQL_PID=Express
+    networks:
+      - sales-network
+
+  # MS SQL Server for Customer Service
+  mssql-customer:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+      - "1436:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong(!)Password
+      - MSSQL_PID=Express
+    networks:
+      - sales-network
+
+networks:
+  sales-network:
+    driver: bridge
