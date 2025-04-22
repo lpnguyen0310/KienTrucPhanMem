@@ -1,0 +1,24 @@
+{
+  "name": "lephuocnguyen_21070711",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "axios-retry": "^4.5.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "opossum": "^8.4.0",
+    "rate-limiter-flexible": "^7.0.0",
+    "timeout": "^0.2.1"
+  }
+}
